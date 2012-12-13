@@ -1,4 +1,6 @@
-.gitignore
+.settings/
+.project
+
 .htaccess
 administrator/cache/*
 administrator/components/com_admin/*
