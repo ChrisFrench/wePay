@@ -26,6 +26,7 @@ class Wepay extends DSC {
 	public $page_tooltip_config_disabled = '0';
 	public $page_tooltip_tools_disabled = '0';
 	//CUSTOM
+	public $use_production = '';
 	public $client_id = '';
 	public $client_secret = '';
 	public $access_token = '';

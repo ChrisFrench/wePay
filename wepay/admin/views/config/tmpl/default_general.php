@@ -16,28 +16,28 @@
 			<td>
 			<input name="client_id" value="<?php echo $this -> row -> get('client_id', ''); ?>" type="text" size="40"/>
 			</td>
-			<td></td>
+			<td><?php echo JText::_('COM_WEPAY_CLIENT_ID_DESC'); ?></td>
 		</tr>
 		<tr>
 			<th style="width: 25%;"> <?php echo JText::_('COM_WEPAY_CLIENT_SECRET'); ?> </th>
 			<td>
 			<input name="client_secret" value="<?php echo $this -> row -> get('client_secret', ''); ?>" type="text" size="40"/>
 			</td>
-			<td></td>
+			<td><?php echo JText::_('COM_WEPAY_CLIENT_SECRET_DESC'); ?></td>
 		</tr>
 		<tr>
 			<th style="width: 25%;"> <?php echo JText::_('COM_WEPAY_ACCESS_TOKEN'); ?> </th>
 			<td>
 			<input name="access_token" value="<?php echo $this -> row -> get('access_token', ''); ?>" type="text" size="40"/>
 			</td>
-			<td></td>
+			<td><?php echo JText::_('COM_WEPAY_ACCESS_TOKEN_DESC'); ?></td>
 		</tr>
 		<tr>
 			<th style="width: 25%;"> <?php echo JText::_('COM_WEPAY_ACCOUNT_ID'); ?> </th>
 			<td>
 			<input name="account_id" value="<?php echo $this -> row -> get('account_id', ''); ?>" type="text" size="40"/>
 			</td>
-			<td></td>
+			<td><?php echo JText::_('COM_WEPAY_ACCOUNT_ID_DESC'); ?></td>
 		</tr>
 
 		<tr>
