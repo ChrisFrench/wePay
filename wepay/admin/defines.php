@@ -114,4 +114,19 @@ class Wepay extends DSC {
 	}
 
 }
+
+
+
+Wepay::load('WepayLib','library.wepay');
+define("CLIENT_ID", Wepay::getInstance()->get('client_id'));
+define("CLIENT_SECRET", Wepay::getInstance()->get('client_secret'));
+
+if(Wepay::getInstance()->get('use_production')) {
+    WePayLib::useProduction(CLIENT_ID,CLIENT_SECRET);
+} else {
+	WePayLib::useStaging(CLIENT_ID,CLIENT_SECRET);
+}
+
+
+
 ?>

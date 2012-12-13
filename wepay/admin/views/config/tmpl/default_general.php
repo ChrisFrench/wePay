@@ -39,7 +39,17 @@
 			</td>
 			<td><?php echo JText::_('COM_WEPAY_ACCOUNT_ID_DESC'); ?></td>
 		</tr>
+		<tr>
+			<th style="width: 25%;"> <?php echo JText::_('COM_WEPAY_OAUTH_ITEMID'); ?> </th>
+			<td>
+			<input name="oauth_itemid" value="<?php echo $this -> row -> get('oauth_itemid', ''); ?>" type="text" size="40"/>
+			</td>
+			<td><?php echo JText::_('COM_WEPAY_OAUTH_ITEMID_DESC'); ?></td>
+		</tr>
 
+
+
+153
 		<tr>
 			<th style="width: 25%;"> <?php echo JText::_('COM_WEPAY_SET_DATE_FORMAT'); ?> </th>
 			<td>

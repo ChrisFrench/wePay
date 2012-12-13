@@ -1,6 +1,6 @@
 <?php
 
-class WePay {
+class WePayLib {
 
 	/**
 	 * Version number - sent in user agent string

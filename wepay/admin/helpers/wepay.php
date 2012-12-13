@@ -46,16 +46,8 @@ class WepayHelperWepay extends JObject {
 		
 	}
 	
-	/**
-	 * https://stage.wepay.com/v2/oauth2/authorize?client_id=[your client id]&redirect_uri=[your redirect uri]]&scope=[the permissions you want]
-	 * 
-	 */
 	
-	public static function authLink($permissions) {
-		$client_id = Wepay::getInstance()->get( 'client_id', '' );
-		$production = Wepay::getInstance()->get( 'use_production', '' );
-		
-	}
+	
 	
 }
 
