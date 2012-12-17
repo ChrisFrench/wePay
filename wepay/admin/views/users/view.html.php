@@ -1,5 +1,6 @@
 <?php
 /**
+ * @version	1.5
  * @package	Wepay
  * @author 	Dioscouri Design
  * @link 	http://www.dioscouri.com
@@ -8,20 +9,12 @@
 */
 
 /** ensure this file is being included by a parent file */
-defined( '_JEXEC' ) or die( 'Restricted access' );
+defined('_JEXEC') or die('Restricted access');
 
-class WepayControllerDashboard extends WepayController
+Wepay::load('WepayViewBase', 'views.base');
+
+class WepayViewUsers extends WepayViewBase 
 {
-	function __construct() 
-	{
-		DSCAcl::validateUser($msg = 'You must be Logged in to create a wepay account');	
-		parent::__construct();
-		$this->set('suffix', 'dashboard');
-	}
-	
-	
-	
-	
 	
 	
 }

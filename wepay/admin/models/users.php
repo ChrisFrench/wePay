@@ -8,13 +8,11 @@
 
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');
-if ( !class_exists('Wepay') ) 
-             JLoader::register( "Wepay", JPATH_ADMINISTRATOR."/components/com_wepay/defines.php" );
-        
+
 
 Wepay::load('WepayModelBase','models.base');
 
-class WepayModelAccounts extends WepayModelBase 
+class WepayModelUsers extends WepayModelBase 
 {
 	
 	protected function _buildQueryWhere(&$query)
@@ -25,8 +23,6 @@ class WepayModelAccounts extends WepayModelBase
         $filter_id_to   = $this->getState('filter_id_to');
 		$filter_userid    = $this->getState('filter_userid');
     	$filter_wepay_userid    = $this->getState('filter_wepay_userid');
-		$filter_wepay_account_id    = $this->getState('filter_wepay_account_id');
-    	$filter_wepay_account_uri     = $this->getState('filter_wepay_account_uri');
     	$filter_wepay_access_token     = $this->getState('filter_wepay_access_token ');
     	$filter_wepay_token_type    = $this->getState('filter_wepay_token_type');
 		$filter_wepay_expires_in    = $this->getState('filter_wepay_expires_in');
@@ -105,7 +101,7 @@ class WepayModelAccounts extends WepayModelBase
      */
     protected function _buildQueryJoins(&$query)
     {
-   // $query -> join('LEFT', '#__users AS user ON tbl.user_id = user.id');	
+    $query -> join('LEFT', '#__users AS user ON tbl.user_id = user.id');	
 		
     }
 	/**
@@ -114,12 +110,12 @@ class WepayModelAccounts extends WepayModelBase
 	protected function _buildQueryFields(&$query)
 	{
 		$fields = array();
-	//	$fields[] = " user.* ";
+		$fields[] = " user.* ";
 		        
 		
 		
 		$query -> select($this -> getState('select', 'tbl.*'));
-	//$query -> select($fields);
+		$query -> select($fields);
 	}
 	
 	

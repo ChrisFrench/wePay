@@ -1,6 +1,7 @@
 .settings/
 .project
-
+*.sublime-project
+*.sublime-workspace
 .htaccess
 administrator/cache/*
 administrator/components/com_admin/*

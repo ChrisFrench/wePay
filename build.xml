@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ An ant build file for joomla install packages
+
+ @author	Dioscouri Design
+ @link		http://www.dioscouri.com
+ @copyright	Copyright (C) 2012 Dioscouri Design. All rights reserved.
+ @license	http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
+-->
+<project name="wepay" default="build" basedir=".">
+    <description>Ant Build File for Wepay</description>
+
+    <!-- load variables from config file -->
+    <property name="cfg.configFile" location="antconfig.txt" />
+    <loadproperties srcfile="${cfg.configFile}" />
+
+    <!--config file values
+    cfg.name=tienda
+    cfg.buildDir=packages
+    cfg.localhostRoot=c:/www
+
+    ftp.server=
+    ftp.user=
+    ftp.password=
+    ftp.dir=
+
+    rsync.server=
+    rsync.user=
+    rsync.dir=
+    -->
+
+    <!-- auto values but should be checked -->
+    <property name="cfg.comName" value="${cfg.name}" />
+    <property name="cfg.comDir" value="${basedir}/${cfg.comName}" />
+    <property name="cfg.buildVersionDir" value="${cfg.buildDir}" />
+	<property name="cfg.plgPrefix" value="tienda_plugin_" />
+	<property name="cfg.modPrefix" value="mod_tienda_" />
+	<property name="cfg.langPrefix" value="tienda_translation_" />
+	<property name="cfg.langDir" value="${basedir}/language_packages" />
+    <property name="cfg.adminFilesDir" location="${cfg.comDir}/admin" />
+    <property name="cfg.siteFilesDir" location="${cfg.comDir}/site" />
+    <property name="cfg.extensionsDir" location="${basedir}/extensions" />
+    <property name="cfg.mediaFilesDir" location="${cfg.comDir}/media" />
+    <property name="cfg.adminLangDir" location="${cfg.comDir}/languages/admin" />
+    <property name="cfg.siteLangDir" location="${cfg.comDir}/languages/site" />
+    <property name="cfg.pluginChartsDir" location="${cfg.comDir}/plugins/${cfg.comName}_plugin_charts" />
+    <property name="cfg.pluginPaymentDir" location="${cfg.comDir}/plugins/${cfg.comName}_plugin_payment" />
+    <property name="cfg.pluginReportDir" location="${cfg.comDir}/plugins/${cfg.comName}_plugin_report" />
+	<property name="cfg.pluginShippingDir" location="${cfg.comDir}/plugins/${cfg.comName}_plugin_shipping" />
+    <property name="cfg.pluginToolDir" location="${cfg.comDir}/plugins/${cfg.comName}_plugin_tool" />
+	<property name="cfg.aux" value="${basedir}/auxiliary_extensions" />
+	<property name="cfg.apps" value="${basedir}/apps" />
+	
+	<target name="clean" description="destroys all generated files and dirs">
+        <delete dir="${cfg.buildDir}/plugins" />
+        <delete dir="${cfg.buildDir}/modules" />
+        <delete dir="${cfg.buildDir}/components" />
+        <delete dir="${cfg.buildDir}/languages" />
+    	<delete dir="${cfg.buildDir}/core" />
+		<delete dir="${cfg.buildDir}/" />
+    	<delete dir="${cfg.buildDir}/plugins_aux" />
+    	<delete dir="${cfg.buildDir}/apps" />
+    </target>
+	
+    <target name="init" description="creates necessary directory to build with">
+        <mkdir dir="${cfg.buildDir}" />
+        <mkdir dir="${cfg.buildDir}/plugins" />
+        <mkdir dir="${cfg.buildDir}/modules" />
+        <mkdir dir="${cfg.buildDir}/components" />
+    	<mkdir dir="${cfg.buildDir}/languages" />
+    	<mkdir dir="${cfg.buildDir}/apps" />
+    	<mkdir dir="${cfg.buildDir}/plugins_aux" />
+    	
+    	<!-- gather build input -->
+    	<input message="Please enter version you are building - #.#.#:" addproperty="ver.no" />
+    	<input message="Please enter the PRE-RELEASE letter - if any:" addproperty="ver.pre" />
+    	
+    	<tstamp>
+    		<format property="buildtime" pattern="yyyy-MM-dd'T'HH:m:ss" />
+    	</tstamp>
+    	
+    	<!-- will parse ANY token in ANY file with @token@ --> 
+    	<filter token="VERSION" value="${ver.no}"/>
+    	<filter token="TIMESTAMP" value="${buildtime}"/>
+    	    	
+    	<!-- some settings that are currently unused -->
+    	<property name="cfg.addversion" value="true" />
+    	<property name="cfg.versionprefix" value="v" />
+    	<property name="cfg.adddate" value="true" />
+    	<property name="cfg.datefmt" value="yyyy-MM-dd" />
+    	<property name="cfg.dateloc" value="en,UK" />    	
+    	
+    </target>
+
+    <target name="build" depends="update_localhost_newest" />
+
+<!-- ************ UPDATE LOCALHOST - NEWEST JOOMLA *********************** -->
+    <target name="update_localhost_newest" description="attemps to update files on localhost server with files from working directory">
+        <condition property="destdir" value="${tmpdir}" else="${cfg.localhostRoot}" >
+            <available file="${tmpdir}" type="dir" />
+        </condition>
+        <!-- MAIN COMPONENT -->
+        <copy todir="${destdir}/administrator/components/com_${cfg.comName}" preservelastmodified="true" overwrite="true">
+            <fileset dir="${cfg.adminFilesDir}" />
+        </copy>
+        <copy todir="${destdir}/administrator/components/com_${cfg.comName}" preservelastmodified="true" overwrite="true">
+            <fileset file="${cfg.comDir}/manifest.xml" />
+        </copy>
+        <copy todir="${destdir}/components/com_${cfg.comName}" preservelastmodified="true" overwrite="true">
+            <fileset dir="${cfg.siteFilesDir}" />
+        </copy>
+        <!-- MEDIA FILES -->
+        <copy todir="${destdir}/media/com_${cfg.comName}" preservelastmodified="true" overwrite="true">
+            <fileset dir="${cfg.mediaFilesDir}" />
+        </copy>
+        <!-- LANGUAGE FILES -->
+        <copy todir="${destdir}/administrator/language/en-GB" preservelastmodified="true" overwrite="true">
+            <fileset dir="${cfg.adminLangDir}" />
+        </copy>
+        <copy todir="${destdir}/language/en-GB" preservelastmodified="true" overwrite="true">
+            <fileset dir="${cfg.siteLangDir}" />
+        </copy>
+        
+    </target>
+
+	
+
+
+
+    <macrodef name="echo-fileset" description="creates a printable directory listing">
+        <attribute name="filesetref" />
+        <sequential>
+            <pathconvert pathsep="&lt;/filename&gt;${line.separator}&lt;filename&gt;" property="@{filesetref}.echopath">
+                <path>
+                    <fileset refid="@{filesetref}" />
+                </path>
+            </pathconvert>
+            <echo message="${@{filesetref}.echopath}" file="${cfg.xmlfile}" append="true" />
+        </sequential>
+    </macrodef>
+</project>

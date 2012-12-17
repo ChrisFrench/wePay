@@ -61,38 +61,15 @@
 
 <pre><code>&lt;?php
 require 'library/wepay.php';
-WePay::useProduction('YOUR CLIENT ID', 'YOUR CLIENT SECRET'); // To initialize staging, use WePay::useStaging('ID','SECRET'); instead.
+WePayLib::useProduction('YOUR CLIENT ID', 'YOUR CLIENT SECRET'); // To initialize staging, use WePay::useStaging('ID','SECRET'); instead.
 </code></pre>
 
 <h3>
 <a name="authentication" class="anchor" href="#authentication"><span class="mini-icon mini-icon-link"></span></a>Authentication</h3>
 
-<p>To obtain an access token for your user, you must redirect the user to WePay for authentication. WePay uses OAuth2 for authorization, which is detailed <a href="https://www.wepay.com/developer/reference/oauth2">in our documentation</a>. To generate the URI to which you must redirect your user, the SDK contains <code>WePay::getAuthorizationUri($scope, $redirect_uri)</code>. <code>$scope</code> should be an array of scope strings detailed in the documentation. To request full access (most useful for testing, since users may be weary of granting permission to your application if it wants to do too much), you pay pass in <code>WePay::$all_scopes</code>. <code>$redirect_uri</code> must be a fully qualified URI where we will send the user after permission is granted (or not granted), and the domain must match your application settings.</p>
+the oauth controller will active wepay system for your user, the joomla user gets  a access taken all that information is stored in the wepay-users table,  you than can create accounts  for the user using wepaylib($token);
 
-<p>If the user grants permission, he or she will be redirected to your <code>$redirect_uri</code> with <code>code=XXXX</code> appended to the query string. If permission is not granted, we will instead put <code>error=XXXX</code> in the query string. If <code>code</code> is present, the following will exchange it for an access token. Note that codes are only valid for several minutes, so you should do this immediately after the user is redirected back to your website or application.</p>
-
-<pre><code>&lt;?php
-if (!empty($_GET['error'])) {
-    // user did not grant permissions
-}
-elseif (empty($_GET['code'])) {
-    // set $scope and $redirect_uri before doing this
-    // this will send the user to WePay to authenticate
-    $uri = WePay::getAuthorizationUri($scope, $redirect_uri);
-    header("Location: $uri");
-    exit;
-}
-else {
-    $info = WePay::getToken($_GET['code'], $redirect_uri);
-    if ($info) {
-        // YOUR ACCESS TOKEN IS HERE
-        $access_token = $info-&gt;access_token;
-    }
-    else {
-        // Unable to obtain access token
-    }
-}
-</code></pre>
+One user can have several accounts, accounts could  be anything, that is why there are scopes.  So you could have donations, or product, or crowdfunding projects. 
 
 <p>Full details on the access token response are <a href="https://www.wepay.com/developer/reference/oauth2#token">here</a>.</p>
 

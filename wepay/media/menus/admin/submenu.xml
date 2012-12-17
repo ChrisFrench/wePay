@@ -5,11 +5,21 @@
        <url>index.php?option=com_wepay&#38;view=dashboard</url>
    </link>
    <link>
+       <name>Users</name>
+       <url>index.php?option=com_wepay&#38;view=Users</url>
+   </link>
+   <link>
        <name>Accounts</name>
        <url>index.php?option=com_wepay&#38;view=accounts</url>
+   </link>
+   <link>
+       <name>Scopes</name>
+       <url>index.php?option=com_wepay&#38;view=scopes</url>
    </link>
    <link>
        <name>Configuration</name>
        <url>index.php?option=com_wepay&#38;view=config</url>
    </link>
 </menu>
+~                                                                                                                                                                                                                                                                             
+~                 
