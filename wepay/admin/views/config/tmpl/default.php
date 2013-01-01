@@ -25,6 +25,7 @@
 					echo $this->sliders->startPane( "pane_$pane" );
 					
 					$this->setLayout( 'default_general' ); echo $this->loadTemplate();
+					$this->setLayout( 'default_checkout' ); echo $this->loadTemplate();
 					
 					$this->setLayout( 'default_tooltips' ); echo $this->loadTemplate();
 

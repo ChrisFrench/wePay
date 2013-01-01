@@ -10,7 +10,7 @@
 						<?php echo JText::_( 'User ID' ); ?>:
 					</td>
 					<td>
-						<input  name="user_id" value="<?php echo @$row->user_id; ?>" size="48" maxlength="250" type="text" />
+						<input  name="joomla_user_id" value="<?php echo @$row->joomla_user_id; ?>" size="48" maxlength="250" type="text" />
 					</td>
 				</tr>
                 <tr>

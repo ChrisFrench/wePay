@@ -27,7 +27,7 @@
 			<tr>
 				<td class="key"> <?php echo JText::_('user_id'); ?>: </td>
 				<td>
-				<input name="user_id" value="<?php echo @$row -> user_id; ?>" size="50" maxlength="250" type="text" style="font-size: 20px;" />
+				<input name="joomla_user_id" value="<?php echo @$row -> joomla_user_id; ?>" size="50" maxlength="250" type="text" style="font-size: 20px;" />
 				</td>
 			</tr>
 			<tr>

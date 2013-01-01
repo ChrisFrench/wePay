@@ -12,7 +12,7 @@ defined('_JEXEC') or die('Restricted access');
 
 // Check the registry to see if our Wepay class has been overridden
 if ( !class_exists('Wepay') ) 
-    	 JLoader::register( "Wepay", JPATH_ADMINISTRATOR."components/com_wepay/defines.php" );
+    	 JLoader::register( "Wepay", JPATH_ADMINISTRATOR."/components/com_wepay/defines.php" );
 
 // before executing any tasks, check the integrity of the installation
 Wepay::getClass( 'WepayHelperDiagnostics', 'helpers.diagnostics' )->checkInstallation();

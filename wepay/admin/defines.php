@@ -25,13 +25,17 @@ class Wepay extends DSC {
 	public $page_tooltip_dashboard_disabled = '0';
 	public $page_tooltip_config_disabled = '0';
 	public $page_tooltip_tools_disabled = '0';
-	//CUSTOM
+	//WEPAY ACCOUNT
 	public $use_production = '';
 	public $client_id = '';
 	public $client_secret = '';
-	public $access_token = '';
+	public $access_token = ''; 
 	public $account_id = '';
-
+	//CHECKOUT
+	public $platform_fee = '';
+	public $platform_fee_option = '0';
+	public $oauth_itemid = '0';
+	public $dashboard_itemid = '0';
 	/**
 	 * Returns the query
 	 * @return string The query to be used to retrieve the rows from the database

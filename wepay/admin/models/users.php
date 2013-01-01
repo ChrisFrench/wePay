@@ -73,7 +73,7 @@ class WepayModelUsers extends WepayModelBase
     	{
     	
     		
-    	 $query->where("tbl.user_id = '".$filter_userid."'");
+    	 $query->where("tbl.joomla_user_id = '".$filter_userid."'");
 	
 		}
 		
@@ -101,7 +101,7 @@ class WepayModelUsers extends WepayModelBase
      */
     protected function _buildQueryJoins(&$query)
     {
-    $query -> join('LEFT', '#__users AS user ON tbl.user_id = user.id');	
+    $query -> join('LEFT', '#__users AS user ON tbl.joomla_user_id = user.id');	
 		
     }
 	/**

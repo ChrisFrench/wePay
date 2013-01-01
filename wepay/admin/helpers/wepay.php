@@ -54,7 +54,7 @@ class WepayHelperWepay extends JObject {
 			return $user;
 		} else {
 			$msg = '';
-			$link = JRoute::_('index.php?option=com_wepay&view=dashboard&Itemid=' . Wepay::getInstance() -> get('dashboard_itemid', '154'), true, -1);
+			$link = JRoute::_('index.php?option=com_wepay&view=dashboard&Itemid=' . Wepay::getInstance() -> get('dashboard_itemid', ''), true, -1);
 			$app = JFactory::getApplication();
 			$app -> redirect($link, $msg);
 		}
@@ -69,7 +69,7 @@ class WepayHelperWepay extends JObject {
 		if ($account -> account_id) {
 			JTable::addIncludePath(JPATH_ADMINISTRATOR . '/components/com_wepay/tables');
 			$table = JTable::getInstance('Accounts', 'WepayTable');
-			$table -> user_id = $wePayUser -> user_id;
+			$table -> joomla_user_id = $wePayUser -> joomla_user_id;
 			$table -> scope_id = $scope;
 			$table -> wepay_account_id = $account -> account_id;
 			$table -> wepay_account_uri = $account -> account_uri;

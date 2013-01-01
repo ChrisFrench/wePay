@@ -11,7 +11,7 @@
 defined('_JEXEC') or die('Restricted access');
 
 if ( !class_exists('Wepay') ) {
-    JLoader::register( "Wepay", JPATH_ADMINISTRATOR.DS."components".DS."com_wepay".DS."defines.php" );
+    JLoader::register( "Wepay", JPATH_ADMINISTRATOR."/components/com_wepay/defines.php" );
 }
 
 Wepay::load( "WepayHelperRoute", 'helpers.route' );

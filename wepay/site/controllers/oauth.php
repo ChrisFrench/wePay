@@ -53,9 +53,9 @@ class WepayControllerOauth extends WepayController {
 			//IF we got this far, we have a valid Access token  lets store it and redirect the user. 	
 			JTable::addIncludePath(JPATH_ADMINISTRATOR . '/components/com_wepay/tables');
 			$table = JTable::getInstance('Users', 'WepayTable');
-			$keys = array('user_id' => $this -> user -> id); //ONLY ONE USSER PER JOOMLA USER
+			$keys = array('joomla_user_id' => $this -> user -> id); //ONLY ONE USSER PER JOOMLA USER
 			$table -> load($keys, true);
-			$table -> user_id = $this -> user -> id;
+			$table -> joomla_user_id = $this -> user -> id;
 			$table -> wepay_userid = $this -> info -> user_id;
 			$table -> wepay_access_token = $this -> info -> access_token;
 			$table -> wepay_token_type = $this -> info -> token_type;
@@ -66,17 +66,21 @@ class WepayControllerOauth extends WepayController {
 			$table -> store();
 			}
 
+			if(Wepay::getInstance() -> get('oauth_redirect')) {
+				$redirect_uri = JRoute::_('index.php?Itemid=' . Wepay::getInstance() -> get('oauth_redirect'), true, -1);
+				$msg = Wepay::getInstance() -> get('oauth_success_message','authenticated');
+			} else {
+				$redirect_uri = JURI::base();
+				$msg = Wepay::getInstance() -> get('oauth_success_message','authenticated');
+
+			}
+				
+
+
 			$app = JFactory::getApplication();
-			$msg = 'authenticated';
-			$app->redirect('crowdfunding/', $table -> wepay_access_token); 
+			$app->redirect($redirect_uri,$msg); 
 		}
 		
-		
-		
-		/*parent::__construct();
-		$this -> set('suffix', 'oauth');
-		
-		$this -> set('suffix', 'oauth');*/
 
 	}
 

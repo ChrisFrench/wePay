@@ -14,7 +14,7 @@ DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `#__wepay_accounts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
+  `joomla_user_id` int(11) NOT NULL,
   `scope_id` int(11) NOT NULL,
   `wepay_account_id` int(11) DEFAULT NULL COMMENT 'The user''s account, which will hold they payments they receive\n',
   `wepay_account_uri` varchar(255) DEFAULT NULL COMMENT 'A uri that corresponds to the account''s page on WePay.',
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `#__wepay_accounts` (
 
 CREATE TABLE IF NOT EXISTS `#__wepay_users` (
   `id` int(11) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
+  `joomla_user_id` int(11) DEFAULT NULL,
   `wepay_userid` int(11) DEFAULT NULL COMMENT 'The unique ID from wepay of the user that has granted you authorization',
   `wepay_access_token` varchar(255) DEFAULT NULL COMMENT 'The token that allows you to make calls on behalf of that user',
   `wepay_token_type` varchar(255) DEFAULT 'BEARER' COMMENT 'For now, this will always be BEARER',

@@ -36,6 +36,26 @@ class WepaySelect extends DSCSelect
 
 		return self::genericlist($list, $name, $attribs, 'value', 'text', $selected, $idtag );
 	}
+
+	/**
+	* Generates Type list
+	*
+	* @param string The value of the HTML name attribute
+	* @param string Additional HTML attributes for the <select> tag
+	* @param mixed The key that is selected
+	* @returns string HTML for the radio list
+	*/
+	public static function feeOptions( $selected, $name = 'filter_feeoptions', $attribs = array('class' => ''), $idtag = null, $allowAny = false, $title = 'COM_WEPAY_TYPE' )
+	{
+	    $list = array();
+		
+		
+		$list[] = JHTML::_('select.option',  '0', JText::_('COM_WEPAY_APPFEE_BUILTIN') );
+		$list[] = JHTML::_('select.option',  '1', JText::_('COM_WEPAY_APPFEE_USERPAYS') );
+		
+
+		return self::genericlist($list, $name, $attribs, 'value', 'text', $selected, $idtag );
+	}
 	
 	
 	
