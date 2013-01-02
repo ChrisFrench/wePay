@@ -59,3 +59,33 @@ CREATE TABLE IF NOT EXISTS `#__wepay_scopes` (
 ) 
 ENGINE=MyISAM  
 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+-- Table structure for table `#__wepay_campaigns`
+-- --------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `#__wepay_campaigns` (
+  `campaign_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `wepay_account_id` varchar(255) DEFAULT NULL,
+  `content_cat_id` int(11) DEFAULT NULL,
+  `category_id` int(11) DEFAULT NULL,
+  `campaign_name` varchar(255) DEFAULT NULL,
+  `campaign_alias` varchar(255) DEFAULT NULL,
+  `campaign_description` text,
+  `campaign_shortdescription` text,
+  `campaign_enabled` tinyint(4) DEFAULT NULL,
+  `campaign_goal` int(11) DEFAULT NULL,
+  `campaign_type` int(11) DEFAULT NULL,
+  `itemid` int(11) DEFAULT NULL,
+  `campaign_raised` int(11) unsigned NOT NULL DEFAULT '0',
+  `campaign_full_image` varchar(255) DEFAULT NULL,
+  `campaign_thumbnail_image` varchar(255) DEFAULT NULL,
+  `created_date` datetime DEFAULT NULL,
+  `modified_date` datetime DEFAULT NULL,
+  `fundingstart_date` datetime DEFAULT NULL,
+  `fundingend_date` datetime DEFAULT NULL,
+  `video` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`campaign_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;;
+

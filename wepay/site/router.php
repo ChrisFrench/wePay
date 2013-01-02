@@ -1,6 +1,6 @@
 <?php
 /**
- * @package Wepay
+ * @package Tienda
  * @author  Dioscouri Design
  * @link    http://www.dioscouri.com
  * @copyright Copyright (C) 2007 Dioscouri Design. All rights reserved.
@@ -10,32 +10,31 @@
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');
 
-if ( !class_exists('Wepay') ) {
-    JLoader::register( "Wepay", JPATH_ADMINISTRATOR."/components/com_wepay/defines.php" );
-}
+if ( !class_exists('Tienda') ) 
+    JLoader::register( "Tienda", JPATH_ADMINISTRATOR."/components/com_tienda/defines.php" );
 
-Wepay::load( "WepayHelperRoute", 'helpers.route' );
+Tienda::load( "TiendaHelperRoute", 'helpers.route' );
 
 /**
  * Build the route
- * Is just a wrapper for WepayHelperRoute::build()
+ * Is just a wrapper for TiendaHelperRoute::build()
  * 
  * @param unknown_type $query
  * @return unknown_type
  */
-function WepayBuildRoute(&$query)
+function TiendaBuildRoute(&$query)
 {
-    return WepayHelperRoute::build($query);
+    return TiendaHelperRoute::build($query);
 }
 
 /**
  * Parse the url segments
- * Is just a wrapper for WepayHelperRoute::parse()
+ * Is just a wrapper for TiendaHelperRoute::parse()
  * 
  * @param unknown_type $segments
  * @return unknown_type
  */
-function WepayParseRoute($segments)
+function TiendaParseRoute($segments)
 {
-    return WepayHelperRoute::parse($segments);
+    return TiendaHelperRoute::parse($segments);
 }

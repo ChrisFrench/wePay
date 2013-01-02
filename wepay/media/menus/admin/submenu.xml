@@ -5,6 +5,10 @@
        <url>index.php?option=com_wepay&#38;view=dashboard</url>
    </link>
    <link>
+       <name>Campaigns</name>
+       <url>index.php?option=com_wepay&#38;view=campaigns</url>
+   </link>
+   <link>
        <name>Users</name>
        <url>index.php?option=com_wepay&#38;view=Users</url>
    </link>
