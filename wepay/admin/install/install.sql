@@ -87,5 +87,15 @@ CREATE TABLE IF NOT EXISTS `#__wepay_campaigns` (
   `fundingend_date` datetime DEFAULT NULL,
   `video` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`campaign_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8;;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
+
+CREATE TABLE IF NOT EXISTS `#__wepay_emails` (
+  `email_id` int NOT NULL AUTO_INCREMENT,
+  `title` text NOT NULL,
+  `article_id` int NOT NULL,
+  `campaign_id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `enabled` tinyint NOT NULL,
+  PRIMARY KEY (`email_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;

@@ -10,10 +10,10 @@
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');
 
-if ( !class_exists('Tienda') ) 
-    JLoader::register( "Tienda", JPATH_ADMINISTRATOR."/components/com_tienda/defines.php" );
+if ( !class_exists('Wepay') ) 
+    JLoader::register( "Wepay", JPATH_ADMINISTRATOR."/components/com_wepay/defines.php" );
 
-Tienda::load( "TiendaHelperRoute", 'helpers.route' );
+Wepay::load( "WepayHelperRoute", 'helpers.route' );
 
 /**
  * Build the route
@@ -22,9 +22,9 @@ Tienda::load( "TiendaHelperRoute", 'helpers.route' );
  * @param unknown_type $query
  * @return unknown_type
  */
-function TiendaBuildRoute(&$query)
+function WepayBuildRoute(&$query)
 {
-    return TiendaHelperRoute::build($query);
+    return WepayHelperRoute::build($query);
 }
 
 /**
@@ -34,7 +34,7 @@ function TiendaBuildRoute(&$query)
  * @param unknown_type $segments
  * @return unknown_type
  */
-function TiendaParseRoute($segments)
+function WepayParseRoute($segments)
 {
-    return TiendaHelperRoute::parse($segments);
+    return WepayHelperRoute::parse($segments);
 }
