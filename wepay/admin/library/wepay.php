@@ -16,7 +16,7 @@ class WePayLib {
 	const SCOPE_COLLECT_PAYMENTS = 'collect_payments';  // Create and interact with checkouts
 	const SCOPE_REFUND_PAYMENTS  = 'refund_payments';   // Refund checkouts
 	const SCOPE_VIEW_USER        = 'view_user';         // Get details about authenticated user
-
+	const SCOPE_PREAPPROVE_PAYMENTS = 'preapprove_payments';         // Gets Preappovals
 	/**
 	 * Application's client ID
 	 */
@@ -36,6 +36,7 @@ class WePayLib {
 		self::SCOPE_COLLECT_PAYMENTS,
 		self::SCOPE_REFUND_PAYMENTS,
 		self::SCOPE_VIEW_USER,
+		self::SCOPE_PREAPPROVE_PAYMENTS
 	);
 
 	/**

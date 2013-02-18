@@ -81,11 +81,11 @@
 					<?php echo $i + 1; ?>
 				</td>
 				<td style="text-align: center;">
-					<?php echo DSCGrid::checkedout( $item, $i, 'id' ); ?>
+					<?php echo DSCGrid::checkedout( $item, $i, 'users_id' ); ?>
 				</td>
 				<td style="text-align: center;">
 					<a href="<?php echo $item->link; ?>">
-						<?php echo $item->id; ?>
+						<?php echo $item->users_id; ?>
 					</a>
 				</td>
 				<td style="text-align: left;">

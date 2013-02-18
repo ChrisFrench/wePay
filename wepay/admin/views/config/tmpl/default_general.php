@@ -47,6 +47,13 @@
 			<td><?php echo JText::_('COM_WEPAY_OAUTH_ITEMID_DESC'); ?></td>
 		</tr>
 		<tr>
+			<th style="width: 25%;"> <?php echo JText::_('COM_WEPAY_OAUTH_REDIRECT_ITEMID'); ?> </th>
+			<td>
+			<input name="oauth_itemid" value="<?php echo $this -> row -> get('oauth_redirect', ''); ?>" type="text" size="40"/>
+			</td>
+			<td><?php echo JText::_('COM_WEPAY_OAUTH_REDIRECT_ITEMID_DESC'); ?></td>
+		</tr>
+		<tr>
 			<th style="width: 25%;"> <?php echo JText::_('COM_WEPAY_DASHBOARD_ITEMID'); ?> </th>
 			<td>
 			<input name="dashboard_itemid" value="<?php echo $this -> row -> get('dashboard_itemid', ''); ?>" type="text" size="40"/>

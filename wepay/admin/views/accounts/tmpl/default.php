@@ -75,16 +75,16 @@
 					<?php echo $i + 1; ?>
 				</td>
 				<td style="text-align: center;">
-					<?php echo DSCGrid::checkedout( $item, $i, 'id' ); ?>
+					<?php echo DSCGrid::checkedout( $item, $i, 'account_id' ); ?>
 				</td>
 				<td style="text-align: center;">
 					<a href="<?php echo $item->link; ?>">
-						<?php echo $item->id; ?>
+						<?php echo $item->account_id; ?>
 					</a>
 				</td>
 				<td style="text-align: left;">
 					<a href="<?php echo $item->link; ?>">
-						<?php echo $item->name; ?>
+						<?php echo $item->wepay_name; ?>
 					</a>
 					
 				</td>

@@ -128,7 +128,7 @@ class WepayModelCampaigns extends WepayModelBase {
 		if (empty($item -> itemid)) {
 			$item -> itemid = '128';
 		}
-		parent::prepareItem(&$item,$key,$refresh);
+		parent::prepareItem($item,$key,$refresh);
 	}
 
 	public function getList($refresh = false) {

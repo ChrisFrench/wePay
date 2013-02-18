@@ -121,9 +121,9 @@ class WepayModelUsers extends WepayModelBase
 	
 	protected function prepareItem( &$item, $key=0, $refresh=false )
 	{
-			$item->link = 'index.php?option=com_wepay&view=accounts&task=edit&id='.$item->id;
+			$item->link = 'index.php?option=com_wepay&view=users&task=edit&id='.$item->users_id;
 			
-			parent::prepareItem(&$item, $key, $refresh );
+			parent::prepareItem($item, $key, $refresh );
 	    
 	}
 	

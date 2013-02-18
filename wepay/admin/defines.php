@@ -36,6 +36,9 @@ class Wepay extends DSC {
 	public $platform_fee_option = '0';
 	public $oauth_itemid = '0';
 	public $dashboard_itemid = '0';
+	//Success Redirect
+	public $oauth_redirect = '104';
+
 	/**
 	 * Returns the query
 	 * @return string The query to be used to retrieve the rows from the database

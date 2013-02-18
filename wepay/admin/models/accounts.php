@@ -127,7 +127,7 @@ class WepayModelAccounts extends WepayModelBase
 	{
 			$item->link = 'index.php?option=com_wepay&view=accounts&task=edit&id='.$item->account_id;
 			
-			parent::prepareItem(&$item, $key, $refresh );
+			parent::prepareItem($item, $key, $refresh );
 	    
 	}
 	

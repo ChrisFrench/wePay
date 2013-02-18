@@ -25,7 +25,7 @@ class WepayControllerOauth extends WepayController {
 		 * */
 		$this -> error = JRequest::getVar('error', '');
 		$this -> code = JRequest::getVar('code', '');
-		$redirect_uri = JRoute::_('index.php?option=com_wepay&view=oauth&Itemid=' . Wepay::getInstance() -> get('oauth_itemid', '153'), true, -1);
+		$redirect_uri = JRoute::_('index.php?option=com_wepay&view=oauth&Itemid=' . Wepay::getInstance() -> get('oauth_itemid', ''), true, -1);
 
 		$this -> user = JFactory::getUser();
 

@@ -1,9 +1,8 @@
+<h1>To create projects, receive funds you need to register with wepay.com</h1>
 <br>
 <div class="alert alert-info fade in span12">
 	<form action="<?php echo JRoute::_('index.php?option=com_wepay&view=oauth&Itemid=' . Wepay::getInstance() -> get('oauth_itemid', '153'), true, -1); ?>">
-	<div class="span12"><h2>
-Inorder to create projects, and receive funds you need to register with wepay.com		
-		</h2>
+	<div class="span12">
 	<div class="span5">
 		
 		<h4>

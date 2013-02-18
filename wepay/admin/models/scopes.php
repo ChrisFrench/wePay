@@ -94,6 +94,7 @@ class WepayModelScopes extends WepayModelBase
 	protected function prepareItem( &$item, $key=0, $refresh=false )
     {
 		$item->link = 'index.php?option=com_wepay&view=scopes&task=edit&id='.$item->scope_id;
+        parent::prepareItem($item, $key, $refresh );
     }
         	
 	
